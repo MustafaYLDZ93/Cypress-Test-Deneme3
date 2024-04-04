@@ -11,15 +11,15 @@ jobs:
         id: cypress-run
         uses: cypress-io/github-action@v6
 
-      - name: Upload screenshots and videos
-        if: ${{ always() }}
+      - name: Upload screenshots for failed tests
+        if: steps.cypress-run.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
           path: cypress/screenshots
 
-      - name: Upload videos
-        if: ${{ always() }}
+      - name: Upload videos for failed tests
+        if: steps.cypress-run.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
