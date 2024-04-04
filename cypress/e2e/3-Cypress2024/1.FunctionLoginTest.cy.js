@@ -8,7 +8,7 @@ function loginUser(username, password) {
 }
 
 // Cypress test case
-describe('Login Test', () => {
+describe('Login Testi', () => {
   it('Should login with valid credentials', () => {
     // Fonksiyonu kullanarak giriş yap
     loginUser('standard_user', 'secret_sauce');
