@@ -1,0 +1,24 @@
+{
+"Login":{
+    "username": "standard_user",
+    "username_text":"input#user-name", 
+    "password_text":"input#password",
+    "password": "secret_sauce",
+    "username_input":"input#user-name", 
+    "password_input":"input#password",
+    "login_buton":"input#login-button",
+    "SolAcılırMenu":"div#menu_button_container div:nth-child(3) > div > button",
+    "Logout_buton":"a#logout_sidebar_link",
+    "Hata_Mesajı":"div#login_button_container h3",
+    "ErrorButton":".error-button",
+    "AddToChart":"div#inventory_container div:nth-child(1) > div.pricebar > button",
+    "ShoppingCartSvg":".shopping_cart_link"
+  
+  },
+ "Chart": {
+   
+    "AddToChart":"div#inventory_container div:nth-child(1) > div.pricebar > button",
+    "ShoppingCartSvg":".shopping_cart_link"
+  
+  }
+}
