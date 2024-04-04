@@ -5,26 +5,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      # https://github.com/cypress-io/github-action
+        uses: actions/checkout@v4
+
       - name: Cypress run
-        uses: cypress-io/github-action@v5
-      # after the test run completes
-      # store videos and any screenshots
-      # NOTE: screenshots will be generated only if E2E test failed
-      # thus we store screenshots only on failures
-      # Alternative: create and commit an empty cypress/screenshots folder
-      # to always have something to upload
-      - uses: actions/upload-artifact@v3
-        if: failure()
+        id: cypress-run
+        uses: cypress-io/github-action@v6
+
+      - name: Upload screenshots and videos
+        if: steps.cypress-run.outcome == 'failure'
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      # Test run video was always captured, so this action uses "always()" condition
-      - uses: actions/upload-artifact@v3
-        if: always()
+
+      - name: Upload videos
+        if: steps.cypress-run.outcome == 'failure'
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
           path: cypress/videos
