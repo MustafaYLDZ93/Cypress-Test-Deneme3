@@ -3,7 +3,7 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    name: TestRun
+    name: Artifacts
     steps:
       - uses: actions/checkout@v4
       - uses: cypress-io/github-action@v6
